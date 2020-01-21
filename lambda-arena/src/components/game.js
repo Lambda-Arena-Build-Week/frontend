@@ -13,6 +13,7 @@ export default class Game extends React.Component{
 
     render() {
         return(
-            <Unity unityContent ={ this.unityContent } />
+            
+            <Unity unityContent ={ this.unityContent } style={{width: 960, height: 600}}/>
         )}
 }
