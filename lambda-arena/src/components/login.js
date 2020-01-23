@@ -39,7 +39,6 @@ console.log('sub')
   login = event => {
     event.preventDefault();
 
-    console.log(this.state.username + "   " + this.state.password);
     if (this.state.register === true) this.setState({ register: false });
     else {
       this.sumbitLogin();
@@ -53,7 +52,8 @@ console.log('sub')
         password: this.state.password
       })
       .then(res => {
-        localStorage.setItem("token", res.key);
+        console.log(res);
+        localStorage.setItem("token", res.data.key);
         localStorage.setItem("gametag", this.state.name);
       })
       .catch(err => {
