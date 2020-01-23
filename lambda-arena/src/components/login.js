@@ -61,7 +61,23 @@ console.log('sub')
       });
   };
 
-  submitRegistration = () => {};
+  submitRegistration = () => {
+    axios
+    .post("https://lambdamud-2020.herokuapp.com/api/v1/rest-auth/registration/", {
+      username: this.state.username,
+      password1: this.state.password,
+      password2: this.state.password2,
+      email: this.state.email
+    })
+    .then(res => {
+      console.log(res);
+      localStorage.setItem("token", res.data.key);
+      localStorage.setItem("gametag", this.state.name);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+  };
 
   register = event => {
     event.preventDefault();
@@ -104,6 +120,14 @@ console.log('sub')
           </form>
         ) : (
           <form onSubmit={this.register} className="register-form">
+            <input
+              label="Game Tag"
+              className="form-input"
+              name="name"
+              type="text"
+              value={this.state.name}
+              onChange={this.inputChange}
+            />
             <input
               label="Email"
               className="form-input"
