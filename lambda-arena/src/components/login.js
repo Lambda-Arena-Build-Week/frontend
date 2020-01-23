@@ -48,7 +48,7 @@ console.log('sub')
 
   sumbitLogin = () => {
     axios
-      .post("https://lambdamud-2020.herokuapp.com/api/v1/rest-auth/login", {
+      .post("https://lambdamud-2020.herokuapp.com/api/v1/rest-auth/login/", {
         username: this.state.username,
         password: this.state.password
       })
