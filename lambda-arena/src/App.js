@@ -6,9 +6,9 @@ import Login from './components/login';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{width:'100%'}}>
       <header className="App-header">
-      <Login/>
+      <Game style={{width:'100%'}}/>
       </header>
     </div>
   );
