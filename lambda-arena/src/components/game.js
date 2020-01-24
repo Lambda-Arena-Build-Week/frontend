@@ -26,9 +26,7 @@ export default class Game extends React.Component{
                 <div style={{width: 960, height: 600}}>
                     <Unity unityContent ={ this.unityContent } />
                 </div>
-                <div style={{width: 800, height: 300}}>
-                    <Chatroom style={{width:'100%'}} unity={this.unityContent}/>
-                </div>
+               
             </div>
         )}
 }
