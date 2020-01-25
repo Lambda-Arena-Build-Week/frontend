@@ -2,6 +2,7 @@ import React from 'react';
 import Unity, { UnityContent } from 'react-unity-webgl';
 import Chatroom from './chatroom/chatroom';
 import Map from './map';
+import axios from 'axios';
 
 export default class Game extends React.Component{
     constructor(props){
