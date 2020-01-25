@@ -19,9 +19,9 @@ class Chatroom extends React.Component {
     );
 
     this.unityContent.on("chat", chat => {
-      console.log(chat);
+ 
       this.setState({
-        chatMessages: [...this.state.chatMessages, JSON.stringify(chat)]
+        chatMessages: [...this.state.chatMessages, JSON.parse(chat)]
       });
     });
   }
@@ -29,13 +29,14 @@ class Chatroom extends React.Component {
   componentDidMount() {}
 
   sendChatMessage = msg => {
-    //this.addChatMessage(msg);
-    this.unityContent.send(
-      "Multiplayer",
-      "ChatMessage",
-      JSON.stringify({ message: "chat", chat: msg })
+    if ((typeof window.wsclient === "undefined") || (window.wsclient === null))
+      return;
+
+    window.wsclient.send(
+     JSON.stringify({ message: "chat", chat: JSON.stringify(msg) })
     );
-  };
+  }
+  
 
   render() {
     const style = {
@@ -54,11 +55,14 @@ class Chatroom extends React.Component {
           <div style={{ width: "100%", height: "500px" }}>
             <ChatWindow chatMessages={this.state.chatMessages} />
           </div>
+        </div>
+        
+
           <div style={{ width: "100%", height: "100px" }}>
             <ChatInput sendChatMessage={this.sendChatMessage} />
           </div>
-        </div>
-      </Paper>
+          </Paper>
+      
     );
   }
 }

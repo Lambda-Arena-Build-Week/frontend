@@ -9,10 +9,20 @@ export default class Game extends React.Component{
                 'game/Build/game.json',
                 'game/Build/UnityLoader.js');
         
-
-
+                
+                this.unityRef = React.createRef();
     }
 
+    gotFocus = e => {
+    
+        this.unityContent.send("Multiplayer", "CaptureKeyboard", "1")
+      };
+
+    lostFocus = e => {
+        this.unityContent.send("Multiplayer", "CaptureKeyboard", "0")
+    }
+
+      
     render() {
 
         const style ={
@@ -23,10 +33,12 @@ export default class Game extends React.Component{
         }
         return(
             <div style={style}>
-                <div style={{width: 960, height: 600}}>
-                    <Unity unityContent ={ this.unityContent } />
+                <div style={{width: 960, height: 600}} tabIndex={1} onFocus={this.gotFocus} onBlur={this.lostFocus}>
+                    <Unity unityContent ={ this.unityContent } ref={this.unityRef}  />
                 </div>
-               
+                <div style={{width: 800, height: 600}}>
+                    <Chatroom style={{width:'100%', zIndex: 1}} unity={this.unityContent}/>
+                </div>
             </div>
         )}
 }
