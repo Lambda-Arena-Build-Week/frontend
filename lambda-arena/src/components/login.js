@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
@@ -73,8 +74,10 @@ console.log('sub')
       console.log(res);
       localStorage.setItem("token", res.data.key);
       localStorage.setItem("gametag", this.state.name);
+
     })
     .catch(err => {
+    	console.error("Registration failed!");
       console.log(err);
     });
   };
@@ -98,6 +101,7 @@ console.log('sub')
               className="form-input"
               name="name"
               type="text"
+							placeholder="Game Tag"
               value={this.state.name}
               onChange={this.inputChange}
             />
@@ -106,6 +110,7 @@ console.log('sub')
               className="form-input"
               name="username"
               type="text"
+							placeholder="Username"
               value={this.state.username}
               onChange={this.inputChange}
             />
@@ -114,6 +119,7 @@ console.log('sub')
               className="form-input"
               name="password"
               type="password"
+							placeholder="password"
               value={this.state.password}
               onChange={this.inputChange}
             />
@@ -125,6 +131,7 @@ console.log('sub')
               className="form-input"
               name="name"
               type="text"
+							placeholder="Game Tag"
               value={this.state.name}
               onChange={this.inputChange}
             />
@@ -133,6 +140,7 @@ console.log('sub')
               className="form-input"
               name="email"
               type="text"
+							placeholder="Email"
               value={this.state.email}
               onChange={this.inputChange}
             />
@@ -141,6 +149,7 @@ console.log('sub')
               className="form-input"
               name="username"
               type="text"
+							placeholder="Username"
               value={this.state.username}
               onChange={this.inputChange}
             />
@@ -149,6 +158,7 @@ console.log('sub')
               className="form-input"
               name="password"
               type="password"
+							placeholder="Password"
               value={this.state.password}
               onChange={this.inputChange}
             />
@@ -157,6 +167,7 @@ console.log('sub')
               className="form-input"
               name="password2"
               type="password"
+							placeholder="Confirm password"
               value={this.state.password2}
               onChange={this.inputChange}
             />
@@ -173,4 +184,4 @@ console.log('sub')
   }
 }
 
-export default Login;
+export default withRouter(Login);

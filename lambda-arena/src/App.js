@@ -4,17 +4,22 @@ import './App.css';
 import Game from './components/game';
 import AuthModal from './components/AuthModal';
 
+import { validateAuthentication } from './utils/validateAuthentication';
+
 class App extends Component {
 	state = {
 		modalIsOpen: true
 	}
 
 	render() {
+		console.log("token", validateAuthentication());
 		return (
 			<div className="App" style={{width:'100%'}}>
 				<header className="App-header">
-					<AuthModal modalIsOpen={true} />
-					<Game style={{width:'100%'}}/>
+					{validateAuthentication() ?
+						<Game style={{width: '100%'}}/> :
+						<AuthModal modalIsOpen={!validateAuthentication()}/>
+					}
 				</header>
 			</div>
 		);
