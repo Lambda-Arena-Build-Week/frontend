@@ -17,9 +17,9 @@ export default class Room extends React.Component{
         if(!room.e_to) right = wall
         if(!room.w_to) left = wall
         return {boxSizing: "border-box",
-                width: "50px",
-                height: "50px",
-                flex: "0 0 50px",
+                width: this.props.box_size,
+                height: this.props.box_size,
+                flex: "0 0 " + this.props.box_size,
                 fontSize:10,
                 color: "#000000", 
                 background: "#ffffff",
@@ -36,9 +36,9 @@ export default class Room extends React.Component{
             
             box_empty : {
                 boxSizing: "border-box",
-                width: "50px",
-                height: "50px",
-                flex: "0 0 50px",
+                width: this.props.box_size,
+                height: this.props.box_size,
+                flex: "0 0 " + this.props.box_size,
                 fontSize:10,
                 color: "#000000", 
                 background: "#999999"

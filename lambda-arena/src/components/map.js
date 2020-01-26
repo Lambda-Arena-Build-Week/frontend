@@ -76,11 +76,10 @@ export default class Map extends React.Component{
     }
 
     render() {
-        let box_size = this.state.width > this.state.height ? 600 /this.state.width : 600 / this.state.height
+        let box_size = (this.state.width > this.state.height ? 600 /this.state.width : 600 / this.state.height) + "px"
 
         return (
             
-
             <div style={{width:600, display:"flex", flexWrap: "wrap", margin: "0 auto"}}>
                 {this.state.grid == null ? 
                 "Generating Map" 
