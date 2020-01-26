@@ -37,7 +37,7 @@ export default class Room extends React.Component{
         return (
             this.props.room 
             ? 
-            <div className="active-room-style" style={this.getStyle(this.props.room)} key={this.props.uniq}>{this.props.active ? <div className="active-room" style={style.active_circle}></div> : this.props.room.rm_id}</div>
+            <div className="active-room-style" style={this.getStyle(this.props.room)} key={this.props.uniq}>{this.props.active ? <div className="active-room" style={style.active_circle}></div> :null}</div>
             :
             <div className="empty-room-style" style={style.box_empty} key={this.props.uniq}></div>
         )
