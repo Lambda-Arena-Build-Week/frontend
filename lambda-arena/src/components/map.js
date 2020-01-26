@@ -68,60 +68,10 @@ export default class Map extends React.Component{
             grid : grid
         })
 
-
-        
+        this.setInitial()
        
-    //     // set sample function to set player_ct for heat map
-    //     setTimeout(function() {
-    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
-    //         let newGrid = this.state.grid.slice()
-    //         newPlayerCt.forEach(newCt => {
-    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-    //         })
-    //         this.setState({
-    //             // active_rm: {"x":1, "y": -2},
-    //             grid: newGrid,
-    //             reverse: false
-    //         })
-    //         this.setActiveRoom(1, -2)
-    //     }
-    //     .bind(this),
-    //      3000)
-
-    //     setTimeout(function() {
-    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
-    //         let newGrid = this.state.grid.slice()
-    //         newPlayerCt.forEach(newCt => {
-    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-    //         })
-    //         this.setState({
-    //             //active_rm: {"x":0, "y":-2},
-    //             grid: newGrid,
-    //             reverse: false
-    //         })
-    //     }
-    //     .bind(this),
-    //      6000)
-
-    //      setTimeout(function() {
-    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 0}, {"x": 3, "y": 3, "player_ct": 1},{"x":3 , "y": 1, "player_ct": 1}, {"x":4 , "y": 1, "player_ct": 1},{"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 0}, {"x": 9, "y": 8, "player_ct": 0},{"x": 8, "y": 8, "player_ct": 2}]
-    //         let newGrid = this.state.grid.slice()
-    //         newPlayerCt.forEach(newCt => {
-    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-    //         })
-    //         this.setState({
-    //             active_rm: {"x":0, "y":-1},
-    //             grid: newGrid,
-    //             reverse: false
-    //         })
-    //     }
-    //     .bind(this),
-    //      10000) 
-
-    //     //this.setPlayerCt([{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}])
-    //     //this.setPlayerCt([{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}])
-
-        this.setActiveRoom(3, 2)
+        this.setPlayers()
+        
 
     }
 
@@ -132,14 +82,11 @@ export default class Map extends React.Component{
         positions.forEach(position => {
             newGrid[position.x][position.y].player_ct = position.player_ct
         })
-        // newGrid[3][2].player_ct = 2;
-        // newGrid[2][2].player_ct = 1;
-        // newGrid[9][8].player_ct = 2;
+
         this.setState({ 
             grid: newGrid,
             reverse : false
         })
-        console.log(this.state.grid[3][2].player_ct, this.state.grid[2][2].player_ct)
     }
         
     setActiveRoom = (x, y) => {
@@ -147,14 +94,75 @@ export default class Map extends React.Component{
             active_rm : {"x" : x, "y": y}, 
             reverse : false
         })
-        // this.setState({
-        //     active_rm : {"x" : 2, "y": 2}, 
-        //     reverse : false
-        // })
+    }
+    setInitial = () => {
+        setTimeout(function() {
+            this.setActiveRoom(3, 2)
+        }.bind(this),
+        3000)
 
+        setTimeout(function() {
+            this.setActiveRoom(4, 2)
+        }.bind(this),
+        6000)
+        setTimeout(function() {
+            this.setActiveRoom(5, 2)
+        }.bind(this),
+        9000)
+        setTimeout(function() {
+            this.setActiveRoom(5, 1)
+        }.bind(this),
+        12000)
     }
 
+    setPlayers = () => {
+                // set sample function to set player_ct for heat map
+                setTimeout(function() {
+                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+                    let newGrid = this.state.grid.slice()
+                    newPlayerCt.forEach(newCt => {
+                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+                    })
+                    this.setState({
+                      grid: newGrid,
+                        reverse: false
+                    })
+                }
+                .bind(this),
+                 3000)
+        
+                setTimeout(function() {
+                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+                    let newGrid = this.state.grid.slice()
+                    newPlayerCt.forEach(newCt => {
+                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+                    })
+                    this.setState({
+                        grid: newGrid,
+                        reverse: false
+                    })
+                }
+                .bind(this),
+                 6000)
+        
+                 setTimeout(function() {
+                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 0}, {"x": 3, "y": 3, "player_ct": 1},{"x":3 , "y": 1, "player_ct": 1}, {"x":4 , "y": 1, "player_ct": 1},{"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 0}, {"x": 9, "y": 8, "player_ct": 0},{"x": 8, "y": 8, "player_ct": 2}]
+                    let newGrid = this.state.grid.slice()
+                    newPlayerCt.forEach(newCt => {
+                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+                    })
+                    this.setState({
+                        grid: newGrid,
+                        reverse: false
+                    })
+                }
+                .bind(this),
+                 10000) 
+    }
+    
+
     render() {
+        
         let box_size = this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height
         return (
             

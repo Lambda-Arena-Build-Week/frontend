@@ -59,7 +59,7 @@ class Chatroom extends React.Component {
         </div>
         
 
-          <div style={{ width: "100%", height: "100px", display:"flex", justifyContent: "center" }}>
+          <div style={{ width: "100%", height: "60px", display:"flex", justifyContent: "center", background:"#bbb493", paddingTop: "14px" }}>
             <ChatInput sendChatMessage={this.sendChatMessage} />
           </div>
       </Paper>
