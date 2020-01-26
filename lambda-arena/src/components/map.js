@@ -7,7 +7,7 @@ export default class Map extends React.Component{
         super(props);
         this.state = {
             grid: null,
-            active_rm : {"x":1, "y":-3},
+            active_rm : {"x":null, "y":null},
             min_x : 0,
             max_x : 0,
             min_y : 0,
@@ -67,30 +67,91 @@ export default class Map extends React.Component{
         this.setState({
             grid : grid
         })
+
+
         
-        // calling sample function to set player_ct for heat map
-        this.setPlayerCt()
-        
+       
+    //     // set sample function to set player_ct for heat map
+    //     setTimeout(function() {
+    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+    //         let newGrid = this.state.grid.slice()
+    //         newPlayerCt.forEach(newCt => {
+    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //         })
+    //         this.setState({
+    //             // active_rm: {"x":1, "y": -2},
+    //             grid: newGrid,
+    //             reverse: false
+    //         })
+    //         this.setActiveRoom(1, -2)
+    //     }
+    //     .bind(this),
+    //      3000)
+
+    //     setTimeout(function() {
+    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+    //         let newGrid = this.state.grid.slice()
+    //         newPlayerCt.forEach(newCt => {
+    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //         })
+    //         this.setState({
+    //             //active_rm: {"x":0, "y":-2},
+    //             grid: newGrid,
+    //             reverse: false
+    //         })
+    //     }
+    //     .bind(this),
+    //      6000)
+
+    //      setTimeout(function() {
+    //         const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 0}, {"x": 3, "y": 3, "player_ct": 1},{"x":3 , "y": 1, "player_ct": 1}, {"x":4 , "y": 1, "player_ct": 1},{"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 0}, {"x": 9, "y": 8, "player_ct": 0},{"x": 8, "y": 8, "player_ct": 2}]
+    //         let newGrid = this.state.grid.slice()
+    //         newPlayerCt.forEach(newCt => {
+    //             newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //         })
+    //         this.setState({
+    //             active_rm: {"x":0, "y":-1},
+    //             grid: newGrid,
+    //             reverse: false
+    //         })
+    //     }
+    //     .bind(this),
+    //      10000) 
+
+    //     //this.setPlayerCt([{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}])
+    //     //this.setPlayerCt([{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}])
+
+        this.setActiveRoom(3, 2)
+
     }
 
     //set heat map sample, need to adjust x y coordinates with x and y offset
-    setPlayerCt = () => {
+    setPlayerCt = (positions) => {
         let newGrid = this.state.grid.slice()
         console.log(newGrid)
-        newGrid[3][2].player_ct = 2;
-        newGrid[2][2].player_ct = 1;
-        newGrid[9][8].player_ct = 2;
+        positions.forEach(position => {
+            newGrid[position.x][position.y].player_ct = position.player_ct
+        })
+        // newGrid[3][2].player_ct = 2;
+        // newGrid[2][2].player_ct = 1;
+        // newGrid[9][8].player_ct = 2;
         this.setState({ 
             grid: newGrid,
-            reverse : !this.state.reverse
+            reverse : false
         })
-        console.log(this.state.grid[2][3].player_ct, this.state.grid[1][1].player_ct)
+        console.log(this.state.grid[3][2].player_ct, this.state.grid[2][2].player_ct)
     }
         
     setActiveRoom = (x, y) => {
         this.setState({
-            active_room : {"x" : x, "y": y}
+            active_rm : {"x" : x, "y": y}, 
+            reverse : false
         })
+        // this.setState({
+        //     active_rm : {"x" : 2, "y": 2}, 
+        //     reverse : false
+        // })
+
     }
 
     render() {

@@ -8,24 +8,26 @@ export default class Room extends React.Component{
 
     getStyle = (room) => {
         let wall = "2px solid #565656";
-        let top = "";
-        let bottom = "";
-        let left = ""; 
-        let right = "";
-        let bk = room.player_ct > 0 ? "#fcc" : "#ffffff";
-        if(!room.n_to) top = wall
-        if(!room.s_to) bottom = wall
-        if(!room.e_to) right = wall
-        if(!room.w_to) left = wall
+        // let top = "";
+        // let bottom = "";
+        // let left = ""; 
+        // let right = "";
+        // let bk = room.player_ct > 0 ? "#fcc" : "#ffffff";
+
+
+        // if(!room.n_to) top = wall
+        // if(!room.s_to) bottom = wall
+        // if(!room.e_to) right = wall
+        // if(!room.w_to) left = wall
         return {
                 width: this.props.box_size.toString() + "px",
                 height: this.props.box_size.toString() + "px",
                 flex: "0 0 " + this.props.box_size.toString() + "px",
-                borderTop: top,
-                borderBottom: bottom,
-                borderRight: right,
-                borderLeft: left,
-                background: bk,
+                borderTop: !room.n_to ? wall : "",
+                borderBottom: !room.s_to ? wall : "", 
+                borderRight: !room.e_to ? wall : "",
+                borderLeft: !room.w_to ? wall : "",
+                background: room.player_ct > 0 ? "#fcc" : "#fff",
             }
     }
 
