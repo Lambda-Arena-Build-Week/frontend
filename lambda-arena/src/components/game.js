@@ -29,10 +29,10 @@ export default class Game extends React.Component{
         const style ={
             display: 'flex',
             flexDirection: 'row',
-            width: '90%',
-            justifyContent: 'space-evenly'
+            width: '100%',
+            justifyContent: 'center'
         }
-        return(
+        return (
 
             <div style={style}>
                 <div style={{width: 960, height: 600}} tabIndex={1} onFocus={this.gotFocus} onBlur={this.lostFocus}>
@@ -40,10 +40,11 @@ export default class Game extends React.Component{
                 </div>
                 <div>
                   <Map />
-              </div>
-                <div style={{width: 800, height: 600}}>
+                  <div style={{width: 400, height: 400, padding: "5px"}}>
                     <Chatroom style={{width:'100%', zIndex: 1}} unity={this.unityContent}/>
                 </div>
+              </div>
+                
             </div>
         )}
 }

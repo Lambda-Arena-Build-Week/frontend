@@ -1,6 +1,5 @@
- 
 body{
-  background-color: #565656;
+  background-color: #6f1313;
  
 }
 
@@ -14,11 +13,31 @@ body{
  
 }
 
+.active-room-style {
+  box-sizing: border-box;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size:10px;
+  color: #000000;
+  background: #ffffff;
+  border-radius:5px;
+  box-shadow: 3px 3px 5px #333
+  /* box-shadow: 3px 3px 3px #333;   */
+}
+
+.empty-room-style {
+  box-sizing: border-box;             
+  font-size:10px;
+  color: #000000;
+  /* background: #999999 */
+}
+
 .active-room {
   position: absolute;
-  transform: translateX(25%) translateY(25%);
-  width: 30px;
-  height: 30px;
+  /* transform: translateX(15%) translateY(15%); */
+  /* width: 30px;
+  height: 30px; */
 }
 .active-room::before {
    content: "";
@@ -69,4 +88,3 @@ body{
    transform: scale(0.8);
   }
  }
- 
