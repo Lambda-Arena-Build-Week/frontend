@@ -56,9 +56,10 @@ console.log('sub')
         console.log(res);
         localStorage.setItem("token", res.data.key);
         localStorage.setItem("gametag", this.state.name);
+        this.props.history.push('/');
       })
       .catch(err => {
-        console.log(err);
+        console.log(err.response);
       });
   };
 
@@ -74,11 +75,12 @@ console.log('sub')
       console.log(res);
       localStorage.setItem("token", res.data.key);
       localStorage.setItem("gametag", this.state.name);
+      this.props.history.push("/");
 
     })
     .catch(err => {
     	console.error("Registration failed!");
-      console.log(err);
+      console.log(err.response);
     });
   };
 
