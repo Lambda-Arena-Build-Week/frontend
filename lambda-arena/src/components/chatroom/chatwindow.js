@@ -29,7 +29,7 @@ class ChatWindow extends React.Component {
         return (
         <div className="chatwindow" style={style.chatWindow}>
             {[...this.props.chatMessages].reverse().map( (msg, index) => {
-                return (<ChatMessage key={index} msg={msg} color={msgColor[index % 2 + this.props.chatMessages.length % 2]}/>)
+                return (<ChatMessage key={index} msg={JSON.parse(msg.chat)} color={msgColor[index % 2 + this.props.chatMessages.length % 2]}/>)
             })}
         </div>
       );
