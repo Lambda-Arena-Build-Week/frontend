@@ -13,7 +13,8 @@ export default class Map extends React.Component{
             min_y : 0,
             max_y : 0,
             width : 0,
-            height: 0,
+            height : 0,
+            reverse : true
         }
     } 
 
@@ -66,9 +67,26 @@ export default class Map extends React.Component{
         this.setState({
             grid : grid
         })
-        console.log(this.state.grid)
+        
+        // calling sample function to set player_ct for heat map
+        this.setPlayerCt()
+        
     }
 
+    //set heat map sample, need to adjust x y coordinates with x and y offset
+    setPlayerCt = () => {
+        let newGrid = this.state.grid.slice()
+        console.log(newGrid)
+        newGrid[3][2].player_ct = 2;
+        newGrid[2][2].player_ct = 1;
+        newGrid[9][8].player_ct = 2;
+        this.setState({ 
+            grid: newGrid,
+            reverse : !this.state.reverse
+        })
+        console.log(this.state.grid[2][3].player_ct, this.state.grid[1][1].player_ct)
+    }
+        
     setActiveRoom = (x, y) => {
         this.setState({
             active_room : {"x" : x, "y": y}
@@ -76,7 +94,6 @@ export default class Map extends React.Component{
     }
 
     render() {
-        //let box_size = (this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height) + "px"
         let box_size = this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height
         return (
             
@@ -84,9 +101,19 @@ export default class Map extends React.Component{
                 {this.state.grid == null ? 
                 "Generating Map" 
                 : 
+                this.state.reverse
+                ? 
+                
                 this.state.grid.reverse().map((col) => {
                     return col.map((room, key)=> {
-                        const active = room ? room.x == this.state.active_rm["x"] && room.y == this.state.active_rm["y"] ? true : false : false  
+                        const active = room ? room.x === this.state.active_rm["x"] && room.y === this.state.active_rm["y"] ? true : false : false  
+                        return <Room room={room} box_size={box_size} uniq={key} active={active}/>
+                    })
+                })
+                :
+                this.state.grid.map((col) => {
+                    return col.map((room, key)=> {
+                        const active = room ? room.x === this.state.active_rm["x"] && room.y === this.state.active_rm["y"] ? true : false : false  
                         return <Room room={room} box_size={box_size} uniq={key} active={active}/>
                     })
                 })
