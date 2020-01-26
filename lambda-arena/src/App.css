@@ -16,9 +16,9 @@ body{
 
 .active-room {
   position: absolute;
-  transform: translateX(25%) translateY(25%);
-  width: 30px;
-  height: 30px;
+  /* transform: translateX(15%) translateY(15%); */
+  /* width: 30px;
+  height: 30px; */
 }
 .active-room::before {
    content: "";

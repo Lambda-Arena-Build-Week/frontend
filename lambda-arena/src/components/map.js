@@ -7,7 +7,7 @@ export default class Map extends React.Component{
         super(props);
         this.state = {
             grid: null,
-            active_rm : {"x":null, "y":null},
+            active_rm : {"x":1, "y":-3},
             min_x : 0,
             max_x : 0,
             min_y : 0,
@@ -76,11 +76,11 @@ export default class Map extends React.Component{
     }
 
     render() {
-        let box_size = (this.state.width > this.state.height ? 400 /this.state.width : 400 / this.state.height) + "px"
-
+        //let box_size = (this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height) + "px"
+        let box_size = this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height
         return (
             
-            <div style={{width:400, display:"flex", flexWrap: "wrap", margin: "0 auto"}}>
+            <div style={{width:400, display:"flex", flexWrap: "wrap", margin: "0 auto", padding: "5px"}}>
                 {this.state.grid == null ? 
                 "Generating Map" 
                 : 

@@ -40,7 +40,7 @@ export default class Game extends React.Component{
                 </div>
                 <div>
                   <Map />
-                  <div style={{width: 400, height: 400}}>
+                  <div style={{width: 400, height: 400, padding: "5px"}}>
                     <Chatroom style={{width:'100%', zIndex: 1}} unity={this.unityContent}/>
                 </div>
               </div>

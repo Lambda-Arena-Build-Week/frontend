@@ -41,27 +41,28 @@ class Chatroom extends React.Component {
   render() {
     const style = {
       chat: {
-        width: "100%",
+        //width: "100%",
         display: "flex",
         flexDirection: "column",
-      
+        boxSizing: "border-box",
+
         padding: "0px",
-        margin: "5px"
+        //margin: "5px"
       }
     };
     return (
       <Paper className="chat" style={style.chat} elevation={3}>
         <div style={style.chat}>
-          <div style={{ width: "100%", height: "500px" }}>
+          <div style={{ width: "100%", height: "200px", marginTop:"5px" }}>
             <ChatWindow chatMessages={this.state.chatMessages} />
           </div>
         </div>
         
 
-          <div style={{ width: "100%", height: "100px" }}>
+          <div style={{ width: "100%", height: "100px", display:"flex", justifyContent: "center" }}>
             <ChatInput sendChatMessage={this.sendChatMessage} />
           </div>
-          </Paper>
+      </Paper>
       
     );
   }
