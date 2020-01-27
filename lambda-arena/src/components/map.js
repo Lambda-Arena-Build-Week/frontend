@@ -178,7 +178,7 @@ export default class Map extends React.Component{
     }
 
     render() {
-        let box_size = this.state.width > this.state.height ? 400 / this.state.width : 400 / this.state.height
+        let box_size = 350 / this.state.width;
         return (
             
             <div style={{width:400, display:"flex", flexWrap: "wrap", margin: "0 auto", padding: "5px"}}>
