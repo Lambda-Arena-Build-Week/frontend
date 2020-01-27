@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Room from './room';
+  
+import { UnityContent } from "react-unity-webgl";
 
 export default class Map extends React.Component{
     constructor(props){
@@ -16,6 +18,28 @@ export default class Map extends React.Component{
             height : 0,
             reverse : true
         }
+
+        this.unityContent = new UnityContent(
+          "MyGame/Build.json",
+          "MyGame/UnityLoader.js"
+        );
+
+        
+        this.playerX = 0;
+      this.playerY = 0;
+
+    this.unityContent.on("updatemapx", msg => {
+       this.playerX = msg;
+    });
+
+    this.unityContent.on("updatemapy", msg => {
+  
+        this.playerY = msg;
+
+        console.log(`x: ${this.playerX }   y:${this.playerY }`);
+        this.setActiveRoom(this.playerX, this.playerY );
+     
+    });
     } 
 
     componentDidMount() {
@@ -67,6 +91,7 @@ export default class Map extends React.Component{
         this.setState({
             grid : grid
         })
+ 
         
         // //testing script for active room
         // this.setInitial()
@@ -94,10 +119,17 @@ export default class Map extends React.Component{
     setActiveRoom = (x, y) => {
         this.setState({
             active_rm : {"x" : x, "y": y}, 
+ 
             reverse : false
         })
+        // this.setState({
+        //     active_rm : {"x" : 2, "y": 2}, 
+        //     reverse : false
+        // })
+
     }
 
+ 
     // setInitial = () => {
     //     setTimeout(function() {
     //         this.setActiveRoom(3, 2)
@@ -170,6 +202,7 @@ export default class Map extends React.Component{
         return (
             
             <div style={{width:350, display:"flex", flexWrap: "wrap", margin: "0 auto", padding: "10px 25px 25px"}}>
+ 
                 {this.state.grid == null ? 
                 "Generating Map" 
                 : 

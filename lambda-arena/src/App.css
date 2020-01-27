@@ -1,4 +1,3 @@
- 
 body{
   background-color: #6f1313;
  
@@ -23,16 +22,19 @@ body{
   background: #ffffff;
   border-radius:5px;
   box-shadow: 3px 3px 5px #333
+
 }
 
 .empty-room-style {
   box-sizing: border-box;             
   font-size:10px;
   color: #000000;
+ 
 }
 
 .active-room {
   position: absolute;
+ 
 }
 .active-room::before {
    content: "";
@@ -83,4 +85,3 @@ body{
    transform: scale(0.8);
   }
  }
- 

@@ -8,6 +8,7 @@ export default class Room extends React.Component{
 
     getStyle = (room) => {
         let wall = "2px solid #565656";
+ 
         return {
                 width: this.props.box_size.toString() + "px",
                 height: this.props.box_size.toString() + "px",
@@ -37,7 +38,9 @@ export default class Room extends React.Component{
         return (
             this.props.room 
             ? 
+ 
             <div className="active-room-style" style={this.getStyle(this.props.room)} key={this.props.uniq}>{this.props.active ? <div className="active-room" style={style.active_circle}></div> :null}</div>
+ 
             :
             <div className="empty-room-style" style={style.box_empty} key={this.props.uniq}></div>
         )

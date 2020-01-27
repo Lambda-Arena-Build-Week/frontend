@@ -30,8 +30,10 @@ export default class Game extends React.Component{
             display: 'flex',
             flexDirection: 'row',
             width: '100%',
+ 
             justifyContent: 'center',
             marginTop:"50px"
+ 
         }
         return (
 
@@ -41,7 +43,9 @@ export default class Game extends React.Component{
                 </div>
                 <div>
                   <Map />
+ 
                   <div style={{width: 350, padding: "0 25px"}}>
+ 
                     <Chatroom style={{width:'100%', zIndex: 1}} unity={this.unityContent}/>
                 </div>
               </div>
