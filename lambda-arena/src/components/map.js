@@ -67,27 +67,29 @@ export default class Map extends React.Component{
         this.setState({
             grid : grid
         })
-
-        this.setInitial()
-       
-        this.setPlayers()
+        
+        // //testing script for active room
+        // this.setInitial()
+        
+        // //testing script for heat map
+        // this.setPlayers()
         
 
     }
 
-    //set heat map sample, need to adjust x y coordinates with x and y offset
-    setPlayerCt = (positions) => {
-        let newGrid = this.state.grid.slice()
-        console.log(newGrid)
-        positions.forEach(position => {
-            newGrid[position.x][position.y].player_ct = position.player_ct
-        })
+    // //set heat map sample, need to adjust x y coordinates with x and y offset
+    // setPlayerCt = (positions) => {
+    //     let newGrid = this.state.grid.slice()
+    //     console.log(newGrid)
+    //     positions.forEach(position => {
+    //         newGrid[position.x][position.y].player_ct = position.player_ct
+    //     })
 
-        this.setState({ 
-            grid: newGrid,
-            reverse : false
-        })
-    }
+    //     this.setState({ 
+    //         grid: newGrid,
+    //         reverse : false
+    //     })
+    // }
         
     setActiveRoom = (x, y) => {
         this.setState({
@@ -95,70 +97,71 @@ export default class Map extends React.Component{
             reverse : false
         })
     }
-    setInitial = () => {
-        setTimeout(function() {
-            this.setActiveRoom(3, 2)
-        }.bind(this),
-        3000)
 
-        setTimeout(function() {
-            this.setActiveRoom(4, 2)
-        }.bind(this),
-        6000)
-        setTimeout(function() {
-            this.setActiveRoom(5, 2)
-        }.bind(this),
-        9000)
-        setTimeout(function() {
-            this.setActiveRoom(5, 1)
-        }.bind(this),
-        12000)
-    }
+    // setInitial = () => {
+    //     setTimeout(function() {
+    //         this.setActiveRoom(3, 2)
+    //     }.bind(this),
+    //     3000)
 
-    setPlayers = () => {
-                // set sample function to set player_ct for heat map
-                setTimeout(function() {
-                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
-                    let newGrid = this.state.grid.slice()
-                    newPlayerCt.forEach(newCt => {
-                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-                    })
-                    this.setState({
-                      grid: newGrid,
-                        reverse: false
-                    })
-                }
-                .bind(this),
-                 3000)
+    //     setTimeout(function() {
+    //         this.setActiveRoom(4, 2)
+    //     }.bind(this),
+    //     6000)
+    //     setTimeout(function() {
+    //         this.setActiveRoom(5, 2)
+    //     }.bind(this),
+    //     9000)
+    //     setTimeout(function() {
+    //         this.setActiveRoom(5, 1)
+    //     }.bind(this),
+    //     12000)
+    // }
+
+    // setPlayers = () => {
+    //             // set sample function to set player_ct for heat map
+    //             setTimeout(function() {
+    //                 const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+    //                 let newGrid = this.state.grid.slice()
+    //                 newPlayerCt.forEach(newCt => {
+    //                     newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //                 })
+    //                 this.setState({
+    //                   grid: newGrid,
+    //                     reverse: false
+    //                 })
+    //             }
+    //             .bind(this),
+    //              3000)
         
-                setTimeout(function() {
-                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
-                    let newGrid = this.state.grid.slice()
-                    newPlayerCt.forEach(newCt => {
-                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-                    })
-                    this.setState({
-                        grid: newGrid,
-                        reverse: false
-                    })
-                }
-                .bind(this),
-                 6000)
+    //             setTimeout(function() {
+    //                 const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 1}, {"x":3 , "y": 1, "player_ct": 2}, {"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 1}, {"x": 9, "y": 8, "player_ct": 2}]
+    //                 let newGrid = this.state.grid.slice()
+    //                 newPlayerCt.forEach(newCt => {
+    //                     newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //                 })
+    //                 this.setState({
+    //                     grid: newGrid,
+    //                     reverse: false
+    //                 })
+    //             }
+    //             .bind(this),
+    //              6000)
         
-                 setTimeout(function() {
-                    const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 0}, {"x": 3, "y": 3, "player_ct": 1},{"x":3 , "y": 1, "player_ct": 1}, {"x":4 , "y": 1, "player_ct": 1},{"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 0}, {"x": 9, "y": 8, "player_ct": 0},{"x": 8, "y": 8, "player_ct": 2}]
-                    let newGrid = this.state.grid.slice()
-                    newPlayerCt.forEach(newCt => {
-                        newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
-                    })
-                    this.setState({
-                        grid: newGrid,
-                        reverse: false
-                    })
-                }
-                .bind(this),
-                 10000) 
-    }
+    //              setTimeout(function() {
+    //                 const newPlayerCt = [{"x": 3, "y": 2, "player_ct": 0}, {"x": 3, "y": 3, "player_ct": 1},{"x":3 , "y": 1, "player_ct": 1}, {"x":4 , "y": 1, "player_ct": 1},{"x":2 , "y": 2, "player_ct": 0}, {"x":3 , "y": 2, "player_ct": 0}, {"x": 9, "y": 8, "player_ct": 0},{"x": 8, "y": 8, "player_ct": 2}]
+    //                 let newGrid = this.state.grid.slice()
+    //                 newPlayerCt.forEach(newCt => {
+    //                     newGrid[newCt.x][newCt.y].player_ct = newCt.player_ct
+    //                 })
+    //                 this.setState({
+    //                     grid: newGrid,
+    //                     reverse: false
+    //                 })
+    //             }
+    //             .bind(this),
+    //              10000) 
+    // }
     
 
     render() {

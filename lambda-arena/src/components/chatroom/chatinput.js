@@ -80,7 +80,7 @@ class ChatInput extends React.Component {
         color: "white",
         font: "3.5rm",
         alignContent: "center",
-        height:"35px",
+        height:"38px",
       },
       chatInputBar: {
         width: "100%",
@@ -91,14 +91,16 @@ class ChatInput extends React.Component {
       },
       inputBar: {
         width: "78%",
-        float: "right"
+        float: "right",
+        marginTop:"3px",
+      
       }
     };
 
     const id = this.state.emojiOpen ? "simple-popover" : undefined;
 
     return (
-      <div className="chatinputbar" style={{ width: "96%", height: "40px" }}>
+      <div className="chatinputbar" style={{ width: "96%", height: "40px", display:"flex", justifyContent:"center", alignItems:"flex-end"}}>
         <Button
           aria-describedby={id}
           variant="contained"
