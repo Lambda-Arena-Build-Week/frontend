@@ -35,6 +35,7 @@ export default class Map extends React.Component{
     this.unityContent.on("updatemapy", msg => {
   
         this.playerY = msg;
+
         this.setActiveRoom(this.playerX, this.playerY );
      
     });
@@ -42,7 +43,7 @@ export default class Map extends React.Component{
 
     componentDidMount() {
         axios
-        .get("https://lambd amud-2020-staging.herokuapp.com/api/gameworld/")
+        .get("https://lambdamud-2020-staging.herokuapp.com/api/gameworld/")
         .then(res => {
             this.setMinMax(res.data)
             //console.log(this.state.min_x, this.state.max_x, this.state.min_y, this.state.max_y, this.state.width, this.state.height)
