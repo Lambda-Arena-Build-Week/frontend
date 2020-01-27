@@ -181,8 +181,8 @@ export default class Map extends React.Component{
         let box_size = 350 / this.state.width;
         return (
             
-            <div style={{width:400, display:"flex", flexWrap: "wrap", margin: "0 auto", padding: "5px"}}>
-                {this.state.grid == null ? 
+          <div style={{width:350, display:"flex", flexWrap: "wrap", margin: "0 auto", padding: "10px 25px 25px"}}>   
+             {this.state.grid == null ? 
                 "Generating Map" 
                 : 
                 this.state.reverse
