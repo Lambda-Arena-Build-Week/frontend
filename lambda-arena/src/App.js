@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Game from './components/game';
+ 
 import AuthModal from './components/AuthModal';
 
 import { validateAuthentication } from './utils/validateAuthentication';
@@ -37,6 +38,7 @@ class App extends Component {
 		);
 	}
 
+ 
 }
 
 export default App;

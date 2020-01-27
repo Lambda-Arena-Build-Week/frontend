@@ -6,7 +6,6 @@ body{
 .App-header  {
  
   display: flex;
-  
   justify-content: space-evenly;
   font-size: calc(10px + 2vmin);
   color: white;
@@ -23,21 +22,19 @@ body{
   background: #ffffff;
   border-radius:5px;
   box-shadow: 3px 3px 5px #333
-  /* box-shadow: 3px 3px 3px #333;   */
+
 }
 
 .empty-room-style {
   box-sizing: border-box;             
   font-size:10px;
   color: #000000;
-  /* background: #999999 */
+ 
 }
 
 .active-room {
   position: absolute;
-  /* transform: translateX(15%) translateY(15%); */
-  /* width: 30px;
-  height: 30px; */
+ 
 }
 .active-room::before {
    content: "";

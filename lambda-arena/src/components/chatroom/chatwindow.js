@@ -12,7 +12,7 @@ class ChatWindow extends React.Component {
             chatWindow: {
  
                 width: '100%',
-                height:' 100%',
+                height:'150px',
                 overflowY: 'auto',
                 overflowX: 'hidden',
                 backgroundColor: 'white',
