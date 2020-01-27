@@ -7,50 +7,39 @@ export default class Room extends React.Component{
     }
 
     getStyle = (room) => {
-        let wall = "2px solid #333";
-        let top = "";
-        let bottom = "";
-        let left = ""; 
-        let right = "";
-        if(!room.n_to) top = wall
-        if(!room.s_to) bottom = wall
-        if(!room.e_to) right = wall
-        if(!room.w_to) left = wall
-        return {boxSizing: "border-box",
-                width: "50px",
-                height: "50px",
-                flex: "0 0 50px",
-                fontSize:10,
-                color: "#000000", 
-                background: "#ffffff",
-                borderTop: top,
-                borderBottom: bottom,
-                borderRight: right,
-                borderLeft: left}
+        let wall = "2px solid #565656";
+        return {
+                width: this.props.box_size.toString() + "px",
+                height: this.props.box_size.toString() + "px",
+                flex: "0 0 " + this.props.box_size.toString() + "px",
+                borderTop: !room.n_to ? wall : "",
+                borderBottom: !room.s_to ? wall : "", 
+                borderRight: !room.e_to ? wall : "",
+                borderLeft: !room.w_to ? wall : "",
+                background: room.player_ct > 0 ? "#fcc" : "#fff",
+            }
     }
 
 
     render(){
-
+        
         const style = {
-            
+            active_circle : {
+                width: (this.props.box_size * .60).toString() + "px",
+                height: (this.props.box_size * .60).toString() + "px",
+            },
             box_empty : {
-                boxSizing: "border-box",
-                width: "50px",
-                height: "50px",
-                flex: "0 0 50px",
-                fontSize:10,
-                color: "#000000", 
-                background: "#999999"
+                width: this.props.box_size.toString() + "px",
+                height: this.props.box_size.toString() + "px",
+                flex: "0 0 " + this.props.box_size.toString() + "px",
             }
-            
         }
         return (
             this.props.room 
             ? 
-            <div style={this.getStyle(this.props.room)} key={this.props.uniq}>{this.props.active ? <div className="active-room"></div> : this.props.room.rm_id}</div>
+            <div className="active-room-style" style={this.getStyle(this.props.room)} key={this.props.uniq}>{this.props.active ? <div className="active-room" style={style.active_circle}></div> :null}</div>
             :
-            <div style={style.box_empty} key={this.props.uniq}></div>
+            <div className="empty-room-style" style={style.box_empty} key={this.props.uniq}></div>
         )
     }
 }

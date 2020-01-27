@@ -29,21 +29,23 @@ export default class Game extends React.Component{
         const style ={
             display: 'flex',
             flexDirection: 'row',
-            width: '90%',
-            justifyContent: 'space-evenly'
+            width: '100%',
+            justifyContent: 'center',
+            marginTop:"50px"
         }
-        return(
+        return (
 
             <div style={style}>
-                <div style={{width: 960, height: 600}} tabIndex={1} onFocus={this.gotFocus} onBlur={this.lostFocus}>
+                <div style={{width: 1060, height: 600}} tabIndex={1} onFocus={this.gotFocus} onBlur={this.lostFocus}>
                     <Unity unityContent ={ this.unityContent } ref={this.unityRef}  />
                 </div>
                 <div>
                   <Map />
-              </div>
-                <div style={{width: 800, height: 600}}>
+                  <div style={{width: 350, padding: "0 25px"}}>
                     <Chatroom style={{width:'100%', zIndex: 1}} unity={this.unityContent}/>
                 </div>
+              </div>
+                
             </div>
         )}
 }
