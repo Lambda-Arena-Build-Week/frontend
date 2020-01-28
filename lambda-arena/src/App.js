@@ -1,18 +1,14 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Game from './components/game';
- 
-import AuthModal from './components/AuthModal';
+
+import Login from './components/login'
 
 import { validateAuthentication } from './utils/validateAuthentication';
 
 class App extends Component {
-	state = {
-		modalIsOpen: true
-	}
 
 	render() {
 		console.log("token", validateAuthentication());
@@ -27,7 +23,7 @@ class App extends Component {
 								() =>
 									validateAuthentication() ?
 									<Game style={{width: '100%'}}/> :
-									<AuthModal modalIsOpen={true} />
+									<Login />
 
 
 							}
