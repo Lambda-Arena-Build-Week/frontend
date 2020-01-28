@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { GoMarkGithub } from "react-icons/go";
+import { FaLinkedin, FaTwitterSquare } from "react-icons/fa";
 
 //images
 import ChrisImage from '../images/chris.jpg';
@@ -60,16 +61,31 @@ class About extends Component {
 							<h3>Ming Liu</h3>
 							<img src={MingImage} />
 							<h2>Full Stack Engineer</h2>
+							<IconsWrapper>
+								<Icon href="https://github.com/skysthelimit68"><GoMarkGithub/></Icon>
+								<Icon href="https://www.linkedin.com/in/mingliu68/"><FaLinkedin/></Icon>
+								<Icon href="https://twitter.com/intoxic8_sky"><FaTwitterSquare/></Icon>
+							</IconsWrapper>
 						</Engineer>
 						<Engineer>
 							<h3>Christopher Riffle</h3>
 							<img src={ChrisImage} />
 							<h2>Full Stack Engineer</h2>
+							<IconsWrapper>
+								<Icon href="https://github.com/cmr629"><GoMarkGithub/></Icon>
+								<Icon href="https://www.linkedin.com/in/christopher-riffle-40b223186/"><FaLinkedin/></Icon>
+								<Icon href="https://twitter.com/criffle"><FaTwitterSquare/></Icon>
+							</IconsWrapper>
 						</Engineer>
 						<Engineer>
 							<h3>Rane Wallin</h3>
 							<img src={RaneImage} />
 							<h2>Full Stack Engineer</h2>
+							<IconsWrapper>
+								<Icon href="https://github.com/RaneWallin"><GoMarkGithub/></Icon>
+								<Icon href="https://www.linkedin.com/in/rane-wallin"><FaLinkedin/></Icon>
+								<Icon href="https://twitter.com/rane_wallin"><FaTwitterSquare/></Icon>
+							</IconsWrapper>
 						</Engineer>
 					</EngineerWrapper>
 				</AboutWrapper>
@@ -97,9 +113,10 @@ const AboutWrapper = styled.div`
 	}
 `;
 
-const Icon = styled.div`
+const Icon = styled.a`
 	margin-right: 10px;
 	display: inline-block;
+	text-decoration: none;
 `;
 const EngineerWrapper = styled.div`
 	display: flex;
