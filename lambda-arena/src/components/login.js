@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { withRouter } from 'react-router-dom';
+import styled from 'styled-components';
 
 class Login extends Component {
   constructor(props) {
@@ -96,8 +97,11 @@ console.log('sub')
   render() {
     return (
       <div className="login">
+				<Header>Deadly Arena</Header>
+				<FormWrapper>
         {!this.state.register ? (
           <form onSubmit={this.submit} className="login-form">
+						<InputsWrapper>
             <input
               label="Game Tag"
               className="form-input"
@@ -121,14 +125,16 @@ console.log('sub')
               className="form-input"
               name="password"
               type="password"
-							placeholder="password"
+							placeholder="Password"
               value={this.state.password}
               onChange={this.inputChange}
             />
+						</InputsWrapper>
           </form>
         ) : (
           <form onSubmit={this.register} className="register-form">
-            <input
+            <InputsWrapper>
+						<input
               label="Game Tag"
               className="form-input"
               name="name"
@@ -173,17 +179,74 @@ console.log('sub')
               value={this.state.password2}
               onChange={this.inputChange}
             />
+						</InputsWrapper>
           </form>
         )}
+        <ButtonWrapper>
         <button className="login-button" onClick={this.login}>
           {!this.state.register ? "Login" : "Cancel"}
         </button>
         <button className="register-button" onClick={this.register}>
           Register
         </button>
+				</ButtonWrapper>
+
+				</FormWrapper>
       </div>
     );
   }
 }
 
 export default withRouter(Login);
+
+const Header = styled.div`
+	text-align: center;
+	font-size: 6rem;
+	color: black;
+	font-weight: bolder;
+	text-shadow: orangered 1px 3px 5px;
+	margin: 30px auto;
+`;
+
+const FormWrapper = styled.div`
+	input {
+		margin: 10px;
+		height: 30px;
+		width: 60%;
+		max-width: 200px;
+		padding: 5px;
+		border: 3px solid black;
+		background-color: darkgrey;
+		::placeholder {
+			color: #6f1313;
+			font-weight: bold;
+		}
+	}
+	padding: 25px 0;
+	border: 2px solid black;
+	background-color: #333333;
+`;
+
+const InputsWrapper = styled.div`
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+`;
+
+const ButtonWrapper = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	button {
+		background-color: maroon;
+		border: 2px solid black;
+		color: black;
+		font-size: 2rem;
+		font-weight: bold;
+		margin: 15px;
+		width: 40%;
+		max-width: 210px;
+		height: 50px;
+	}
+`;
