@@ -13,7 +13,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App" style={{width:'100%'}}>
-			 
+			 <Navigation />
 				<header className="App-header">
 					<Router>
 						<Route

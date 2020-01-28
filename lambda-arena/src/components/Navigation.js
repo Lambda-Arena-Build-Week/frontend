@@ -12,7 +12,7 @@ class Navigation extends Component {
 			<NavWrapper>
 				<Nav>
 					<About modalIsOpen={this.state.modalIsOpen}/>
-					<a href="#" onClick={() => this.setState({modalIsOpen: true})}>About</a>
+					<div onClick={() => this.setState({modalIsOpen: true})}>About</div>
 				</Nav>
 			</NavWrapper>
 		)
