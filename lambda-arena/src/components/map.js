@@ -16,7 +16,7 @@ export default class Map extends React.Component{
             max_y : 0,
             width : 0,
             height : 0,
-            reverse : true
+            reverse : false
         }
 
         this.unityContent = new UnityContent(
