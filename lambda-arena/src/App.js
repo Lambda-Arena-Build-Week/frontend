@@ -4,20 +4,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Game from './components/game';
 import Login from './components/login';
-import About from './components/About';
+import Navigation from './components/Navigation';
 
 import { validateAuthentication } from './utils/validateAuthentication';
 
 class App extends Component {
-	state = {
-		modalIsOpen: false
-	}
 
 	render() {
 		return (
 			<div className="App" style={{width:'100%'}}>
-				<About modalIsOpen={this.state.modalIsOpen}/>
-				<a href="#" onClick={() => this.setState({ modalIsOpen: true})}>About</a>
+				<Navigation/>
 				<header className="App-header">
 					<Router>
 						<Route
