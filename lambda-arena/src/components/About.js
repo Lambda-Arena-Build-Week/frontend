@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import Login from './login';
 import Modal from 'react-modal';
 import styled from 'styled-components';
 import { GoMarkGithub } from "react-icons/go";
+
+//images
+import ChrisImage from '../images/chris.jpg';
+import MingImage from '../images/ming.png';
+import RaneImage from '../images/rane.jpg';
 
 
 const modalStyles = {
@@ -49,10 +53,24 @@ class About extends Component {
 				<AboutWrapper>
 					<h1>About</h1>
 					<p>Deadly Arena is a multiplayer third person shooter developed using Unity, React, Node, and Django.</p>
-					<IconWrapper><GoMarkGithub/></IconWrapper><a href="https://github.com/Lambda-Arena-Build-Week">GitHub Repo</a>
+					<Icon><GoMarkGithub/></Icon><a href="https://github.com/Lambda-Arena-Build-Week">GitHub Repo</a>
 					<h3>Engineers</h3>
 					<EngineerWrapper>
-						Hello
+						<Engineer>
+							<h3>Ming Liu</h3>
+							<img src={MingImage} />
+							<h2>Full Stack Engineer</h2>
+						</Engineer>
+						<Engineer>
+							<h3>Christopher Riffle</h3>
+							<img src={ChrisImage} />
+							<h2>Full Stack Engineer</h2>
+						</Engineer>
+						<Engineer>
+							<h3>Rane Wallin</h3>
+							<img src={RaneImage} />
+							<h2>Full Stack Engineer</h2>
+						</Engineer>
 					</EngineerWrapper>
 				</AboutWrapper>
 			</Modal>
@@ -79,10 +97,40 @@ const AboutWrapper = styled.div`
 	}
 `;
 
-const IconWrapper = styled.div`
+const Icon = styled.div`
 	margin-right: 10px;
 	display: inline-block;
 `;
 const EngineerWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-around;
+`;
 
+const Engineer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+	h3 {
+		font-size: 1.2rem;
+		font-weight: bold;
+		text-align: center;
+	}
+	img {
+		border: 2px solid black;
+	}
+	
+	h2 {
+			color: black;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+`;
+
+const IconsWrapper = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 `;
